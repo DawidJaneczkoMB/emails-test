@@ -43,7 +43,7 @@ export function TemplateItem({ template }: TemplateItemProps) {
 
       {isExpanded && (
         <div className="ml-16">
-          {template.variants.map((variantName) => {
+          {[...template.variants].sort().map((variantName) => {
             const isSelected =
               templateName === template.name && variant === variantName;
             return (

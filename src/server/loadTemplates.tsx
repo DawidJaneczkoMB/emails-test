@@ -23,7 +23,7 @@ export const loadTemplates = createServerFn().handler(async () => {
       if (variantNames.length > 0) {
         templates.push({
           name: templateName,
-          variants: variantNames,
+          variants: variantNames.sort(),
         });
       }
     } catch (error) {
@@ -31,5 +31,5 @@ export const loadTemplates = createServerFn().handler(async () => {
     }
   }
 
-  return templates;
+  return templates.sort((a, b) => a.name.localeCompare(b.name));
 });
