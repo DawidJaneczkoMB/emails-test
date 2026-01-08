@@ -30,8 +30,8 @@ export function CodePreview({
   }, [copied]);
 
   return (
-    <div className="flex-1 bg-black flex flex-col overflow-hidden">
-      <div className="flex items-center justify-between px-16 py-12 border-b border-gray-700">
+    <div className="flex-1 bg-black flex flex-col min-h-0">
+      <div className="flex items-center justify-between px-16 py-12 border-b border-gray-700 min-h-60 h-60">
         <div className="flex items-center gap-8">
           <Link
             from="/previews/$templateName/$variant"
@@ -106,17 +106,15 @@ export function CodePreview({
       </div>
 
       <div className="flex-1 overflow-auto bg-gray-900">
-        <div className="p-16">
-          <pre className="text-sm text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
-            <code>
-              {isHtml ? (
-                <span className="whitespace-pre-wrap">{html}</span>
-              ) : (
-                <span className="whitespace-pre-wrap">{plainText}</span>
-              )}
-            </code>
-          </pre>
-        </div>
+        <pre className="p-16 text-sm text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
+          <code>
+            {isHtml ? (
+              <span className="whitespace-pre-wrap">{html}</span>
+            ) : (
+              <span className="whitespace-pre-wrap">{plainText}</span>
+            )}
+          </code>
+        </pre>
       </div>
     </div>
   );

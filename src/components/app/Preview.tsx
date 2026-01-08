@@ -1,22 +1,35 @@
+import type { ComponentProps } from "react";
+
 type PreviewProps = {
   html?: string;
+  isLoading?: boolean;
   notFound?: boolean;
 };
 
-export function Preview({ html, notFound }: PreviewProps) {
-  if (notFound) {
+export function Preview({ html, isLoading, notFound }: PreviewProps) {
+  if (isLoading || notFound) {
     return (
-      <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center p-32">
-        <p className="text-white text-lg">Preview not found</p>
-      </div>
+      <Wrapper>
+        <p className="text-black text-2xl">
+          {isLoading ? "Loading..." : "Preview not found"}
+        </p>
+      </Wrapper>
     );
   }
 
   return (
-    <div className="flex-1 bg-[#F5F5F5] overflow-y-auto flex flex-col items-center p-32">
+    <Wrapper>
       <div className="max-w-600 w-full flex-1 flex flex-col min-h-0">
         <iframe srcDoc={html} className="w-full flex-1 min-h-0"></iframe>
       </div>
+    </Wrapper>
+  );
+}
+
+function Wrapper({ children }: ComponentProps<"div">) {
+  return (
+    <div className="flex-1 bg-white overflow-y-auto flex flex-col items-center p-32">
+      {children}
     </div>
   );
 }

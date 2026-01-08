@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { VariantLayout } from "@/components/app/VariantLayout";
 import { Preview } from "@/components/app/Preview";
 import { CodePreview } from "@/components/app/CodePreview";
-import { Loading } from "@/components/app/Loading";
 import { z } from "zod";
 
 const previewSearchSchema = z.object({
@@ -29,7 +28,7 @@ function RouteComponent() {
   if (isLoading) {
     return (
       <VariantLayout templateName={templateName} variant={variant}>
-        <Loading />
+        <Preview isLoading />
       </VariantLayout>
     );
   }

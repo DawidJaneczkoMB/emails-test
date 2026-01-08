@@ -12,14 +12,14 @@ export function TopBar({ templateName, variant }: TopBarProps) {
   const isCode = currentView === "code";
 
   return (
-    <div className="h-64 bg-black flex items-center justify-center px-16 border-b border-gray-700">
+    <div className="min-h-64 h-64 bg-black flex items-center justify-center px-16 border-b border-gray-700">
       <div className="flex items-center gap-8">
         <Link
           from="/previews/$templateName/$variant"
           to="/previews/$templateName/$variant"
           params={{ templateName, variant }}
           search={(prev) => ({ ...prev, view: "preview" })}
-          className={`size-32 rounded flex items-center justify-center cursor-pointer transition-colors ${
+          className={`size-40 rounded flex items-center justify-center cursor-pointer transition-colors ${
             isPreview ? "bg-gray-700" : "bg-gray-800 hover:bg-gray-700"
           }`}
         >
@@ -42,7 +42,7 @@ export function TopBar({ templateName, variant }: TopBarProps) {
           to="/previews/$templateName/$variant"
           params={{ templateName, variant }}
           search={(prev) => ({ ...prev, view: "code" })}
-          className={`size-32 rounded flex items-center justify-center cursor-pointer transition-colors ${
+          className={`size-40 rounded flex items-center justify-center cursor-pointer transition-colors ${
             isCode ? "bg-gray-700" : "bg-gray-800 hover:bg-gray-700"
           }`}
         >

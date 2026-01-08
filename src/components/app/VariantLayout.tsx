@@ -12,7 +12,7 @@ export function VariantLayout({
   children,
 }: VariantLayoutProps) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col flex-1 h-full">
       <TopBar templateName={templateName} variant={variant} />
       {children}
     </div>
