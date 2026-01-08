@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useParams } from "@tanstack/react-router";
 
 type TemplateItemProps = {
@@ -15,33 +14,27 @@ export function TemplateItem({ template }: TemplateItemProps) {
   const { templateName, variant } = params;
 
   const isTemplateActive = templateName === template.name;
-  const [isExpanded, setIsExpanded] = useState(() => isTemplateActive);
+
+  const firstVariant = [...template.variants].sort()[0];
+
+  const linkParams = isTemplateActive
+    ? { templateName: template.name, variant: variant }
+    : { templateName: template.name, variant: firstVariant };
 
   return (
     <div className="mb-8">
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center w-full text-white py-8 px-8 cursor-pointer hover:bg-gray-800 rounded"
+      <Link
+        from="/previews/$templateName/$variant"
+        to="/previews/$templateName/$variant"
+        params={linkParams}
+        className={`flex items-center w-full text-white py-8 px-8 hover:bg-gray-800 rounded ${
+          isTemplateActive ? "pointer-events-none" : ""
+        }`}
       >
-        <svg
-          className={`w-4 h-4 mr-8 text-gray-400 transition-transform ${
-            isExpanded ? "rotate-180" : ""
-          }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-        <span className="text-xl font-semibold">{template.name}</span>
-      </button>
+        <span className="text-2xl font-semibold">{template.name}</span>
+      </Link>
 
-      {isExpanded && (
+      {isTemplateActive && (
         <div className="ml-16">
           {[...template.variants].sort().map((variantName) => {
             const isSelected =
@@ -55,28 +48,13 @@ export function TemplateItem({ template }: TemplateItemProps) {
                   templateName: template.name,
                   variant: variantName,
                 }}
-                className={`flex items-center py-8 px-8 cursor-pointer rounded ${
+                className={`flex items-center py-8 px-8 rounded ${
                   isSelected
-                    ? "bg-blue-600 text-white"
+                    ? "bg-blue-600 text-white pointer-events-none"
                     : "text-white hover:bg-gray-800"
                 }`}
               >
-                <svg
-                  className={`w-4 h-4 mr-8 ${
-                    isSelected ? "text-gray-300" : "text-gray-400"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                <span className="text-xl">{variantName}</span>
+                <span className="text-2xl">{variantName}</span>
               </Link>
             );
           })}
