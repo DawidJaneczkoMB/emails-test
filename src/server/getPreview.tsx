@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
-import { getPreviewModule } from "../utils/email-loader";
+import { getPreviewModule } from "../utils/emailLoader";
 import type { ComponentType } from "react";
-import { render } from "@react-email/render";
+import { render, pretty, toPlainText } from "@react-email/render";
 
 export const getPreview = createServerFn()
   .inputValidator(
@@ -23,5 +23,15 @@ export const getPreview = createServerFn()
     const Preview = mod[variant];
     if (!Preview) return null;
 
-    return render(<Preview />);
+    const html = await render(<Preview />);
+
+    const prettyHtml = await pretty(html);
+
+    const plainText = await toPlainText(html);
+
+    return {
+      html,
+      prettyHtml,
+      plainText,
+    };
   });

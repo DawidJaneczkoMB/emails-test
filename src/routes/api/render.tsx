@@ -1,5 +1,5 @@
-import { render } from "@react-email/render";
-import { getTemplateModule } from "../../utils/email-loader";
+import { render, toPlainText } from "@react-email/render";
+import { getTemplateModule } from "../../utils/emailLoader";
 import { createFileRoute } from "@tanstack/react-router";
 import type { ComponentType } from "react";
 
@@ -45,8 +45,6 @@ export const Route = createFileRoute("/api/render")({
         // Templates use default export
         const Template = mod.default || mod[templateName];
 
-        console.log({ mod });
-
         if (!Template) {
           return Response.json(
             { error: `Template not found: ${templateName}` },
@@ -55,8 +53,9 @@ export const Route = createFileRoute("/api/render")({
         }
 
         const html = await render(<Template {...props} />);
+        const plainText = await toPlainText(html);
 
-        return new Response(JSON.stringify({ html }), {
+        return new Response(JSON.stringify({ html, plainText }), {
           headers: { "Content-Type": "application/json" },
         });
       },

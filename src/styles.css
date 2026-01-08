@@ -1,15 +1,239 @@
 @import "tailwindcss";
 
+html {
+  font-size: 62.5%;
+  line-height: normal;
+}
+
 body {
   @apply m-0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@theme {
+  /* Colors */
+  --color-veiling-waterfalls: #d4e7ff;
+  --color-pickled-bluewood: #263746;
+  --color-transparent: transparent;
+  --color-aconite-purple: #7451d8;
+  --color-catskill-white: #f1f4f8;
+  --color-levender-savor: #eae2ff;
+  --color-black-squeeze: #f8fbfc;
+  --color-chateau-green: #45bf51;
+  --color-pattens-blue: #d5e7ff;
+  --color-whisper-blue: #e4e9f1;
+  --color-winter-haven: #e0e5eb;
+  --color-athens-gray: #f3f5f8;
+  --color-blue-ribbon: #0670f7;
+  --color-eucalyptus: #268a5a;
+  --color-ghost-white: #f9fafb;
+  --color-orange-peel: #eb9700;
+  --color-papaya-whip: #ffefd3;
+  --color-alice-blue: #f7fcff;
+  --color-buttercup: #f7b422;
+  --color-misty-rose: #ffe2e0;
+  --color-parsimmon: #ff6157;
+  --color-dust-gray: #979797;
+  --color-flamingo: #ee4536;
+  --color-solitude: #e9ecf0;
+  --color-waterloo: #7d8190;
+  --color-heather: #c1cbd7;
+  --color-magical: #c1cdd8;
+  --color-inherit: inherit;
+  --color-mystic: #dae4e8;
+  --color-zircon: #f3f8ff;
+  --color-fiord: #444c66;
+  --color-white: #ffffff;
+  --color-tara: #e2f8e3;
+  --color-azure: #f4faf9;
+  --color-celadon-green: #1b8a81;
+  --color-blue: #062df7;
+  --color-cerulean: #06bdf7;
+  --color-science-blue: #0562d9;
+  --color-pomegranate: #ec2b1a;
+  --color-chathams-blue: #18407c;
+  --color-port-gore: #232648;
+
+  /* Fonts */
+  --font-body: "Source Sans Pro", sans-serif;
+  --font-heading: "Ubuntu", sans-serif;
+
+  /* Font Weights */
+  --font-weight-semibold: 600;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Font Sizes */
+  --text-inherit: inherit;
+  --text-very-small: 0.9rem;
+  --text-small: 1.2rem;
+  --text-body-small: 1.4rem;
+  --text-body: 1.6rem;
+  --text-h6: 1.8rem;
+  --text-h5: 2rem;
+  --text-h4: 2.4rem;
+  --text-h3: 2.8rem;
+  --text-h2: 3.2rem;
+  --text-h1: 4rem;
+
+  /* Line Heights */
+  --leading-body: 1.3rem;
+  --leading-body-small: 1.6rem;
+  --leading-small: 1.8rem;
+  --leading-h6: 2.3rem;
+  --leading-h5: 2.7rem;
+  --leading-h4: 3.2rem;
+  --leading-h3: 2.8rem;
+  --leading-h2: 3.6rem;
+  --leading-h1: 3.6rem;
+
+  /* Spacing */
+  --spacing: 0.1rem;
+  --spacing-none: 0;
+  --spacing-auto: auto;
+  --spacing-xxs: 0.4rem;
+  --spacing-spacing6: 0.6rem;
+  --spacing-xs: 0.8rem;
+  --spacing-spacing10: 1rem;
+  --spacing-sm: 1.2rem;
+  --spacing-md: 1.6rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.4rem;
+  --spacing-2xl: 3.2rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 4.8rem;
+  --spacing-5xl: 6.4rem;
+  --spacing-6xl: 8rem;
+  --spacing-7xl: 9.6rem;
+  --spacing-8xl: 12.8rem;
+  --spacing-9xl: 16rem;
+  --spacing-10xl: 19.2rem;
+  --spacing-11xl: 22.4rem;
+  --spacing-12xl: 25.6rem;
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-xxs: 0.2rem;
+  --radius-xs: 0.4rem;
+  --radius-sm: 0.6rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-full: 9999px;
+  --radius-8: 0.8rem;
+  --radius-12: 1.2rem;
+  --radius-16: 1.6rem;
+
+  /* Z-Index */
+  --z-index-negative: -1;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 320px;
+  --breakpoint-desktop: 844px;
+  --breakpoint-laptop: 1200px;
+  --breakpoint-desktop-l: 1400px;
+  --breakpoint-desktop-xl: 1600px;
+
+  /* Shadows */
+  --shadow-sm: 0px 1px 2px rgba(218, 228, 232, 0.5);
+  --shadow-lg: 0px 4px 16px -4px rgba(218, 228, 232, 0.75);
+  --shadow-a11y: 0px 0px 0px 2px rgba(6, 112, 247, 0.5);
+  --shadow-button-focus: 0px 0px 0px 2px var(--color-fiord);
+  --shadow-button-primary-hover: 0px 0px 0px 2px #1378f9;
+  --shadow-button-secondary: 0px 2px 4px -1px rgba(218, 228, 232, 0.5);
+  --shadow-button-secondary-focus: 0px 0px 0px 2px rgba(6, 112, 247, 0.5);
+  --shadow-button-tertiary-hover: 0px 0px 0px 2px #ef5244;
+
+  /* Animations */
+  --animate-fade-in: fadeInAnimation 420ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  --animate-spin: spin 1s linear infinite;
+  --animate-slide-in: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-out: slideOut 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-left: slideLeft 350ms ease;
+  --animate-modal-entry: modalEntry 350ms ease;
+  --animate-pulse-color: pulseColor 2s infinite;
+
+  /* Keyframes */
+  @keyframes spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(calc(100% + var(--spacing-lg)));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(var(--radix-toast-swipe-end-x));
+    }
+    to {
+      transform: translateX(calc(100% + var(--spacing-lg)));
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes modalEntry {
+    from {
+      transform: translateY(-10rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseColor {
+    0% {
+      transform: scale(0.99);
+      box-shadow: 0 0 0 0 var(--pulse-indicator-color);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }
 }

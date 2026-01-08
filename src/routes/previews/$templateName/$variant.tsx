@@ -1,22 +1,62 @@
 import { getPreview } from "@/server/getPreview";
 import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { VariantLayout } from "@/components/app/VariantLayout";
+import { Preview } from "@/components/app/Preview";
+import { CodePreview } from "@/components/app/CodePreview";
+import { Loading } from "@/components/app/Loading";
+import { z } from "zod";
+
+const previewSearchSchema = z.object({
+  view: z.enum(["preview", "code"]).optional().default("preview"),
+  lang: z.enum(["html", "markdown"]).optional().default("html"),
+});
 
 export const Route = createFileRoute("/previews/$templateName/$variant")({
+  validateSearch: previewSearchSchema,
   component: RouteComponent,
 });
 
 function RouteComponent() {
   const { templateName, variant } = Route.useParams();
-  const getHtml = useServerFn(getPreview);
-  const [html, setHtml] = useState<string | null>(null);
-  useEffect(() => {
-    if (!templateName || !variant) return;
-    getHtml({ data: { templateName, variant } }).then((html) => {
-      setHtml(html);
-    });
-  }, [getHtml, templateName, variant]);
+  const search = Route.useSearch();
+  const { data, isLoading } = useQuery({
+    queryKey: ["preview", templateName, variant],
+    queryFn: () => getPreview({ data: { templateName, variant } }),
+    enabled: !!templateName && !!variant,
+  });
 
-  return <div>{html}</div>;
+  if (isLoading) {
+    return (
+      <VariantLayout templateName={templateName} variant={variant}>
+        <Loading />
+      </VariantLayout>
+    );
+  }
+
+  if (!data) {
+    return (
+      <VariantLayout templateName={templateName} variant={variant}>
+        No preview available
+      </VariantLayout>
+    );
+  }
+
+  const currentView = search.view;
+  const { html, prettyHtml, plainText } = data;
+
+  return (
+    <VariantLayout templateName={templateName} variant={variant}>
+      {currentView === "code" ? (
+        <CodePreview
+          html={prettyHtml}
+          plainText={plainText}
+          templateName={templateName}
+          variant={variant}
+        />
+      ) : (
+        <Preview html={html} />
+      )}
+    </VariantLayout>
+  );
 }
