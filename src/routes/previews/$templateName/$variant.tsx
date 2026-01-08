@@ -37,13 +37,14 @@ function RouteComponent() {
   if (!data) {
     return (
       <VariantLayout templateName={templateName} variant={variant}>
-        No preview available
+        <Preview notFound />
       </VariantLayout>
     );
   }
 
-  const currentView = search.view;
   const { html, prettyHtml, plainText } = data;
+
+  const currentView = search.view;
 
   return (
     <VariantLayout templateName={templateName} variant={variant}>

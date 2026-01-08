@@ -1,8 +1,17 @@
 type PreviewProps = {
-  html: string;
+  html?: string;
+  notFound?: boolean;
 };
 
-export function Preview({ html }: PreviewProps) {
+export function Preview({ html, notFound }: PreviewProps) {
+  if (notFound) {
+    return (
+      <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center p-32">
+        <p className="text-white text-lg">Preview not found</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex-1 bg-[#F5F5F5] overflow-y-auto flex flex-col items-center p-32">
       <div className="max-w-600 w-full flex-1 flex flex-col min-h-0">
