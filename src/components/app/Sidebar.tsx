@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { loadTemplates } from "../../server/loadTemplates";
+import { loadTemplates } from "@/server/loadTemplates";
 import { TemplatesList } from "./TemplatesList";
 
 export function Sidebar() {

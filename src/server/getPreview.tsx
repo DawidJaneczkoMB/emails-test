@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { getPreviewModule } from "../utils/emailLoader";
+import { getPreviewModule } from "@/utils/emailLoader";
 import type { ComponentType } from "react";
 import { render, pretty, toPlainText } from "@react-email/render";
 

@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { previewModules } from "../utils/emailLoader";
+import { previewModules } from "@/utils/emailLoader";
 
 type TemplateInfo = {
   name: string;

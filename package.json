@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3883",
-    "build": "vite build"
+    "build": "vite build",
+    "generate-api-key": "node scripts/generate-api-key.js"
   },
   "dependencies": {
     "@react-email/components": "1.0.4",

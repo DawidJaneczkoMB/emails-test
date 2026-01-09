@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { TanStackQueryProvider } from "../../providers/tanstackQuery";
+import { TanStackQueryProvider } from "@/providers/tanstackQuery";
 import { Sidebar } from "./Sidebar";
 
 export function Layout({ children }: { children: ReactNode }) {

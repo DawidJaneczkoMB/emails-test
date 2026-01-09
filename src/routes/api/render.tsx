@@ -1,10 +1,12 @@
 import { render, toPlainText } from "@react-email/render";
-import { getTemplateModule } from "../../utils/emailLoader";
+import { getTemplateModule } from "@/utils/emailLoader";
 import { createFileRoute } from "@tanstack/react-router";
 import type { ComponentType } from "react";
+import { apiMiddleware } from "@/middleware/api";
 
 export const Route = createFileRoute("/api/render")({
   server: {
+    middleware: [apiMiddleware],
     handlers: {
       POST: async ({ request }) => {
         const contentLength = request.headers.get("content-length");
