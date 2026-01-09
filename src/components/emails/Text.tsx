@@ -4,7 +4,9 @@ import type { ComponentProps } from "react";
 export function Text({ className, ...props }: ComponentProps<typeof REText>) {
   return (
     <REText
-      className={`font-body text-body text-pickled-bluewood m-0 ${className}`}
+      className={`font-body text-body text-pickled-bluewood m-0 ${
+        className ?? ""
+      }`}
       {...props}
     />
   );
