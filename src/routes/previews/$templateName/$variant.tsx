@@ -19,7 +19,7 @@ export const Route = createFileRoute("/previews/$templateName/$variant")({
 function RouteComponent() {
   const { templateName, variant } = Route.useParams();
   const search = Route.useSearch();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["preview", templateName, variant],
     queryFn: () => getPreview({ data: { templateName, variant } }),
     enabled: !!templateName && !!variant,
@@ -33,7 +33,7 @@ function RouteComponent() {
     );
   }
 
-  if (!data) {
+  if (!data || isError) {
     return (
       <VariantLayout templateName={templateName} variant={variant}>
         <Preview notFound />

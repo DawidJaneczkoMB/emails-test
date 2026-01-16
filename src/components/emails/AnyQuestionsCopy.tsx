@@ -4,6 +4,7 @@ import { Link } from "./Link";
 import type OrganizationCustomizableEmailProps from "../../types/OrganizationCustomizableEmailProps";
 import type { VisualCustomizationProps } from "../../types/OrganizationCustomizableEmailProps";
 import { Column, Row } from "@react-email/components";
+import { emailsCn } from "@/utils/cn";
 
 export type AnyQuestionsCopyProps = ComponentProps<typeof Text> &
   Partial<Pick<OrganizationCustomizableEmailProps, "customerServiceMail">> &
@@ -20,7 +21,10 @@ export function AnyQuestionsCopy({
       <Row>
         <Column>
           <Text
-            className={`text-body-small text-waterloo leading-small ${className}`}
+            className={emailsCn(
+              "text-body-small text-waterloo leading-small",
+              className
+            )}
             {...textProps}
           >
             If you have any questions, please contact us -{" "}
@@ -40,7 +44,10 @@ export function AnyQuestionsCopy({
     <Row>
       <Column>
         <Text
-          className={`text-body-small text-waterloo leading-small ${className}`}
+          className={emailsCn(
+            "text-body-small text-waterloo leading-small",
+            className
+          )}
           {...textProps}
         >
           If you have any questions, please contact us -{" "}

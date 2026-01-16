@@ -1,3 +1,4 @@
+import { cn } from "@/utils/cn";
 import { Link, useParams } from "@tanstack/react-router";
 
 type TemplateItemProps = {
@@ -27,9 +28,10 @@ export function TemplateItem({ template }: TemplateItemProps) {
         from="/previews/$templateName/$variant"
         to="/previews/$templateName/$variant"
         params={linkParams}
-        className={`flex items-center w-full text-white py-8 px-8 hover:bg-gray-800 rounded ${
-          isTemplateActive ? "pointer-events-none" : ""
-        }`}
+        className={cn(
+          "flex items-center w-full text-white py-8 px-8 hover:bg-gray-800 rounded",
+          isTemplateActive && "pointer-events-none"
+        )}
       >
         <span className="text-2xl font-semibold">{template.name}</span>
       </Link>
@@ -48,11 +50,12 @@ export function TemplateItem({ template }: TemplateItemProps) {
                   templateName: template.name,
                   variant: variantName,
                 }}
-                className={`flex items-center py-8 px-8 rounded ${
+                className={cn(
+                  "flex items-center py-8 px-8 rounded",
                   isSelected
                     ? "bg-blue-600 text-white pointer-events-none"
                     : "text-white hover:bg-gray-800"
-                }`}
+                )}
               >
                 <span className="text-2xl">{variantName}</span>
               </Link>

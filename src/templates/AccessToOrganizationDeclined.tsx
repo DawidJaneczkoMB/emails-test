@@ -21,12 +21,12 @@ export function AccessToOrganizationDeclined({
         Access Request Update - Your Request Was Declined
       </HeroSection>
       <Section>
-        <Text className="text-waterloo leading-20 pb-14">
+        <Text className="text-waterloo pb-14">
           We regret to inform you that your request to join {organizationName}{" "}
           in Payments AI has been declined by the organization owner.
         </Text>
 
-        <Text className="text-waterloo leading-20 pb-14">
+        <Text className="text-waterloo pb-14">
           If you belive this is a mistake or would like to discuss this further,
           please contact the organization -{" "}
           <Link href={`mailto:${customerServiceMail}`}>

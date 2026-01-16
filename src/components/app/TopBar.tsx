@@ -1,3 +1,4 @@
+import { cn } from "@/utils/cn";
 import { Link, useSearch } from "@tanstack/react-router";
 
 type TopBarProps = {
@@ -19,12 +20,16 @@ export function TopBar({ templateName, variant }: TopBarProps) {
           to="/previews/$templateName/$variant"
           params={{ templateName, variant }}
           search={(prev) => ({ ...prev, view: "preview" })}
-          className={`size-40 rounded flex items-center justify-center cursor-pointer transition-colors ${
+          className={cn(
+            "size-40 rounded flex items-center justify-center cursor-pointer transition-colors",
             isPreview ? "bg-gray-700" : "bg-gray-800 hover:bg-gray-700"
-          }`}
+          )}
         >
           <svg
-            className={`size-16 ${isPreview ? "text-white" : "text-gray-400"}`}
+            className={cn(
+              "size-20",
+              isPreview ? "text-white" : "text-gray-400"
+            )}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -42,12 +47,13 @@ export function TopBar({ templateName, variant }: TopBarProps) {
           to="/previews/$templateName/$variant"
           params={{ templateName, variant }}
           search={(prev) => ({ ...prev, view: "code" })}
-          className={`size-40 rounded flex items-center justify-center cursor-pointer transition-colors ${
+          className={cn(
+            "size-40 rounded flex items-center justify-center cursor-pointer transition-colors",
             isCode ? "bg-gray-700" : "bg-gray-800 hover:bg-gray-700"
-          }`}
+          )}
         >
           <svg
-            className={`size-16 ${isCode ? "text-white" : "text-gray-400"}`}
+            className={cn("size-20", isCode ? "text-white" : "text-gray-400")}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

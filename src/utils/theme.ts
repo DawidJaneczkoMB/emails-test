@@ -7,7 +7,9 @@ import * as R from "remeda";
 export const Theme = {
   color: withTransformedKeys(importedTheme.color),
   font: withTransformedKeys(importedTheme.font),
-  fontWeight: withTransformedKeys(importedTheme.fontWeight),
+  fontWeight: withTransformedKeys(importedTheme.fontWeight, (value) =>
+    value.toString()
+  ),
   text: {
     ...withTransformedKeys(importedTheme.text, remToPx),
     ...Object.fromEntries(
@@ -26,7 +28,11 @@ export const Theme = {
       Array.from({ length: 600 }, (_, i) => [i + 1, `${i + 1}px`])
     ),
   },
-  radius: withTransformedKeys(importedTheme.radius, remToPx),
+  radius: {
+    ...withTransformedKeys(importedTheme.radius, remToPx),
+    3: "3px",
+    4: "4px",
+  },
   zIndex: withTransformedKeys(importedTheme.zIndex),
   breakpoint: withTransformedKeys(importedTheme.breakpoint),
   shadow: withTransformedKeys(importedTheme.shadow),
@@ -50,3 +56,5 @@ function remToPx(value: string, base: number = 10): string {
   if (!value.includes("rem")) return value;
   return Number(value.replace("rem", "")) * base + "px";
 }
+
+export type EmailsTheme = typeof Theme;

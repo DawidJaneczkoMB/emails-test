@@ -15,7 +15,7 @@ export function TemplatesList({ templates }: TemplatesListProps) {
   );
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto p-16">
       {sortedTemplates.map((template) => (
         <TemplateItem key={template.name} template={template} />
       ))}

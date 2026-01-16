@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearch } from "@tanstack/react-router";
+import { cn } from "@/utils/cn";
 
 type CodePreviewProps = {
   html: string;
@@ -38,11 +39,12 @@ export function CodePreview({
             to="/previews/$templateName/$variant"
             params={{ templateName, variant }}
             search={(prev) => ({ ...prev, view: "code", lang: "html" })}
-            className={`px-16 py-8 rounded text-lg font-medium transition-colors ${
+            className={cn(
+              "px-16 py-8 rounded text-lg font-medium transition-colors",
               isHtml
                 ? "bg-gray-700 text-white"
                 : "bg-transparent text-gray-400 hover:text-white"
-            }`}
+            )}
           >
             HTML
           </Link>
@@ -51,11 +53,12 @@ export function CodePreview({
             to="/previews/$templateName/$variant"
             params={{ templateName, variant }}
             search={(prev) => ({ ...prev, view: "code", lang: "markdown" })}
-            className={`px-16 py-8 rounded text-lg font-medium transition-colors ${
+            className={cn(
+              "px-16 py-8 rounded text-lg font-medium transition-colors",
               isMarkdown
                 ? "bg-gray-700 text-white"
                 : "bg-transparent text-gray-400 hover:text-white"
-            }`}
+            )}
           >
             Plain Text
           </Link>

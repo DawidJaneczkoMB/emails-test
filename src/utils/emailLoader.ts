@@ -3,7 +3,7 @@ export const previewModules = import.meta.glob("../previews/*.tsx");
 
 function resolveTemplatePath(templateName: string) {
   return Object.keys(templateModules).find((path) =>
-    path.endsWith(`${templateName}.tsx`)
+    path.endsWith(`/${templateName}.tsx`) || path.endsWith(`\\${templateName}.tsx`)
   );
 }
 
@@ -20,7 +20,7 @@ export function getTemplateModule(templateName: string | undefined) {
 
 function resolvePreviewPath(previewName: string) {
   return Object.keys(previewModules).find((path) =>
-    path.endsWith(`${previewName}.tsx`)
+    path.endsWith(`/${previewName}.tsx`) || path.endsWith(`\\${previewName}.tsx`)
   );
 }
 

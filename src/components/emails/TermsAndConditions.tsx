@@ -3,11 +3,11 @@ import { Link } from "./Link";
 
 export function TermsAndConditions() {
   return (
-    <Row>
+    <Row className="pb-20">
       <Column align="center" className="px-25 py-10 w-1/2">
         <Link
           href="https://app.payments.ai/terms-and-conditions.pdf"
-          className="text-small leading-20"
+          className="text-small"
         >
           Terms and Conditions
         </Link>
@@ -15,7 +15,7 @@ export function TermsAndConditions() {
       <Column align="center" className="px-25 py-10 w-1/2">
         <Link
           href="https://app.payments.ai/privacy-policy.pdf"
-          className="text-small leading-20"
+          className="text-small"
         >
           Privacy Policy
         </Link>

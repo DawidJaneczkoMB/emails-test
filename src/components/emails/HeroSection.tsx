@@ -1,12 +1,13 @@
 import type { VisualCustomizationProps } from "@/types/OrganizationCustomizableEmailProps";
 import type { EmailImages } from "@/utils/getImage";
-import { Row, Column, Img } from "@react-email/components";
+import { Row, Column, Img, Section } from "@react-email/components";
 import type { PropsWithChildren, ReactNode } from "react";
 import { Logo } from "./Logo";
 import { UserLogo } from "./UserLogo";
 import getImage from "@/utils/getImage";
 import { Title } from "./Title";
 import { getHeadingTextFontStyleProps } from "@/utils/getTextProps";
+import { emailsCn } from "@/utils/cn";
 
 type HeroSectionCustomizationProps = Partial<
   Pick<
@@ -39,8 +40,10 @@ export function HeroSection({
   logoUrl,
   image,
 }: HeroSectionProps) {
+  const headingTextProps = getHeadingTextFontStyleProps(fontHeaders);
+
   return (
-    <Row className="pb-32">
+    <Row className="pb-20">
       <Column align="center">
         {withLogo &&
           (organizationCustomizable ? (
@@ -55,18 +58,21 @@ export function HeroSection({
           ))}
 
         {image && illustrations && (
-          <Img
-            src={getImage(image)}
-            alt={imageAlt}
-            className="px-25 py-16 w-215 h-auto"
-          />
+          <Section className="px-25 py-16">
+            <Img
+              src={getImage(image)}
+              alt={imageAlt}
+              className="w-215 h-auto mx-auto"
+            />
+          </Section>
         )}
 
         <Title
           style={{
             color: colorTextHeaders,
-            ...getHeadingTextFontStyleProps(fontHeaders),
+            ...headingTextProps.style,
           }}
+          className={emailsCn("px-25 pt-10", headingTextProps.className)}
         >
           {children}
         </Title>

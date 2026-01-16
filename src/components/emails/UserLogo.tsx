@@ -1,8 +1,8 @@
 import { Img } from "@react-email/components";
 import { Text } from "./Text";
 import { getHeadingTextFontStyleProps } from "@/utils/getTextProps";
-import { importedTheme } from "@/importedTheme";
 import { EmailFonts } from "@/importedUtils";
+import { emailsCn } from "@/utils/cn";
 
 export type UserLogoProps = {
   organizationNameColor?: string;
@@ -23,14 +23,15 @@ export function UserLogo({
     );
   }
 
+  const headingTextProps = getHeadingTextFontStyleProps(organizationFont);
+
   return (
     <Text
       style={{
         color: organizationNameColor,
-        fontSize: importedTheme.text.h5,
-        ...getHeadingTextFontStyleProps(organizationFont),
+        ...headingTextProps.style,
       }}
-      className="pb-16"
+      className={emailsCn("text-h5 pb-16", headingTextProps.className)}
     >
       {organizationName}
     </Text>
