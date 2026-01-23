@@ -3,7 +3,7 @@ import { z } from "zod";
 // Environment variables schema
 const envSchema = z.object({
   // Assets URL (available on client and server)
-  VITE_ASSETS_URL: z.url("VITE_ASSETS_URL must be a valid URL").optional(),
+  VITE_ASSETS_URL: z.url("VITE_ASSETS_URL must be a valid URL"),
 
   // API Configuration (server-only)
   HASHED_API_KEY: z.string().min(1, "HASHED_API_KEY is required"),
