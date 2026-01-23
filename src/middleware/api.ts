@@ -14,8 +14,10 @@ export const apiMiddleware = createMiddleware().server(
 
     try {
       checkAPIKey(apiKey);
-    } catch {
-      return Response.json({ error: "invalid api key" }, { status: 401 });
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      return Response.json({ error: errorMessage }, { status: 401 });
     }
 
     return next();

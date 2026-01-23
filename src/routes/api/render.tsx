@@ -1,51 +1,46 @@
 import { render, toPlainText } from "@react-email/render";
-import { getTemplateModule } from "@/utils/emailLoader";
 import { createFileRoute } from "@tanstack/react-router";
-import type { ComponentType } from "react";
 import { apiMiddleware } from "@/middleware/api";
+import { parseRequestBody, loadTemplate } from "./-utils";
 
 export const Route = createFileRoute("/api/render")({
   server: {
     middleware: [apiMiddleware],
     handlers: {
       POST: async ({ request }) => {
-        const contentLength = request.headers.get("content-length");
+        let body: { templateName?: string; props?: any };
 
-        let body: { templateName?: string; props?: any } = {};
-        if (contentLength && parseInt(contentLength) > 0) {
-          try {
-            body = await request.json();
-          } catch (error) {
+        try {
+          const parsed = await parseRequestBody(request);
+          if (!parsed) {
             return Response.json(
-              { error: "Invalid JSON in request body" },
+              { error: "Request body is required" },
               { status: 400 }
             );
           }
-        } else {
+          body = parsed;
+        } catch (error) {
           return Response.json(
-            { error: "Request body is required" },
+            {
+              error:
+                error instanceof Error
+                  ? error.message
+                  : "Invalid JSON in request body",
+            },
             { status: 400 }
           );
         }
 
         const { templateName, props } = body;
 
-        const importFn = getTemplateModule(templateName);
-
-        if (!templateName || !importFn) {
+        if (!templateName) {
           return Response.json(
-            { error: `Template not found: ${templateName}` },
-            { status: 404 }
+            { error: "templateName is required" },
+            { status: 400 }
           );
         }
 
-        // Call the import function from the glob
-        const mod = (await importFn()) as {
-          default?: ComponentType<any>;
-          [key: string]: any;
-        };
-        // Templates use default export
-        const Template = mod.default || mod[templateName];
+        const Template = await loadTemplate(templateName);
 
         if (!Template) {
           return Response.json(
@@ -54,7 +49,7 @@ export const Route = createFileRoute("/api/render")({
           );
         }
 
-        const html = await render(<Template {...props} />);
+        const html = await render(<Template {...(props || {})} />);
         const plainText = await toPlainText(html);
 
         return new Response(JSON.stringify({ html, plainText }), {

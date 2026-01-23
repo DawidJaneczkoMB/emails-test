@@ -155,7 +155,7 @@ Content-Type: application/json
 POST /api/send-email
 ```
 
-Sends a test email with a rendered template.
+Sends a test email with a rendered template. Accepts the same props as the render endpoint plus a recipient email address.
 
 **Request Headers:**
 ```
@@ -167,8 +167,19 @@ Content-Type: application/json
 ```json
 {
   "templateName": "AccessToOrganizationGranted",
-  "variant": "default",
+  "props": {
+    "organizationName": "Acme Corp",
+    "organizationDashboardUrl": "https://app.example.com/dashboard"
+  },
   "recipientEmail": "test@example.com"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Email sent to test@example.com"
 }
 ```
 
@@ -197,7 +208,10 @@ curl -X POST http://localhost:3883/api/send-email \
   -H "Content-Type: application/json" \
   -d '{
     "templateName": "AccessToOrganizationGranted",
-    "variant": "default",
+    "props": {
+      "organizationName": "Tech Startup Inc",
+      "organizationDashboardUrl": "https://dashboard.paymentsai.com"
+    },
     "recipientEmail": "dev@example.com"
   }'
 ```

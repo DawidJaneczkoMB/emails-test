@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiSendEmailRouteImport } from './routes/api/send-email'
 import { Route as ApiRenderRouteImport } from './routes/api/render'
 import { Route as PreviewsTemplateNameVariantRouteImport } from './routes/previews/$templateName/$variant'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSendEmailRoute = ApiSendEmailRouteImport.update({
+  id: '/api/send-email',
+  path: '/api/send-email',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiRenderRoute = ApiRenderRouteImport.update({
@@ -33,30 +39,47 @@ const PreviewsTemplateNameVariantRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/render': typeof ApiRenderRoute
+  '/api/send-email': typeof ApiSendEmailRoute
   '/previews/$templateName/$variant': typeof PreviewsTemplateNameVariantRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/render': typeof ApiRenderRoute
+  '/api/send-email': typeof ApiSendEmailRoute
   '/previews/$templateName/$variant': typeof PreviewsTemplateNameVariantRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/render': typeof ApiRenderRoute
+  '/api/send-email': typeof ApiSendEmailRoute
   '/previews/$templateName/$variant': typeof PreviewsTemplateNameVariantRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/render' | '/previews/$templateName/$variant'
+  fullPaths:
+    | '/'
+    | '/api/render'
+    | '/api/send-email'
+    | '/previews/$templateName/$variant'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/render' | '/previews/$templateName/$variant'
-  id: '__root__' | '/' | '/api/render' | '/previews/$templateName/$variant'
+  to:
+    | '/'
+    | '/api/render'
+    | '/api/send-email'
+    | '/previews/$templateName/$variant'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/render'
+    | '/api/send-email'
+    | '/previews/$templateName/$variant'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiRenderRoute: typeof ApiRenderRoute
+  ApiSendEmailRoute: typeof ApiSendEmailRoute
   PreviewsTemplateNameVariantRoute: typeof PreviewsTemplateNameVariantRoute
 }
 
@@ -67,6 +90,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/send-email': {
+      id: '/api/send-email'
+      path: '/api/send-email'
+      fullPath: '/api/send-email'
+      preLoaderRoute: typeof ApiSendEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/render': {
@@ -89,6 +119,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiRenderRoute: ApiRenderRoute,
+  ApiSendEmailRoute: ApiSendEmailRoute,
   PreviewsTemplateNameVariantRoute: PreviewsTemplateNameVariantRoute,
 }
 export const routeTree = rootRouteImport

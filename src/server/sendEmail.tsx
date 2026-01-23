@@ -57,10 +57,6 @@ export const sendEmail = createServerFn()
         text: preview.plainText,
       });
 
-      console.log(
-        `✅ Email sent for ${templateName}/${variant} to ${recipientEmail}`
-      );
-
       return {
         success: true,
         message: `Email sent to ${recipientEmail}`,
@@ -68,9 +64,6 @@ export const sendEmail = createServerFn()
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Unknown error";
-      console.error(
-        `❌ Failed to send ${templateName}/${variant}: ${errorMessage}`
-      );
       throw new Error(`Failed to send email: ${errorMessage}`);
     }
   });
