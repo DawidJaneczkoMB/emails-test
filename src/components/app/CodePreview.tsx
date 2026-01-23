@@ -109,7 +109,7 @@ export function CodePreview({
       </div>
 
       <div className="flex-1 overflow-auto bg-gray-900">
-        <pre className="p-16 text-sm text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
+        <pre className="p-16 text-sm text-white font-mono leading-relaxed whitespace-pre-wrap">
           <code>
             {isHtml ? (
               <span className="whitespace-pre-wrap">{html}</span>

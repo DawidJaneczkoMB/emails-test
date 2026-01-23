@@ -1,5 +1,6 @@
 
 import crypto from "crypto";
+import { env } from "@/env";
 
 export function checkAPIKey(apiKey: string) {
   const hashedApiKey = crypto
@@ -7,7 +8,7 @@ export function checkAPIKey(apiKey: string) {
     .update(apiKey)
     .digest("hex");
 
-  if (hashedApiKey !== process.env.HASHED_API_KEY) {
+  if (hashedApiKey !== env.HASHED_API_KEY) {
     throw new Error("Invalid API key");
   }
 }
