@@ -1,9 +1,9 @@
 import { EmailFonts } from "@/importedUtils";
 import { Column, Row, Section } from "@react-email/components";
 import { Text } from "./Text";
-import { getParagraphTextFontStyleProps } from "@/utils/getTextProps";
+import { getParagraphTextFontStyleProps } from "@/utils/emails/getTextProps";
 import { ComponentProps } from "react";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 type TableSummaryItem = {
   value: undefined | string | number | null;

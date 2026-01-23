@@ -2,10 +2,10 @@ import { CreditCardBrand } from "@/importedApi";
 import { EmailFonts } from "@/importedUtils";
 import { Column, Img, Row, Section } from "@react-email/components";
 import { Text } from "./Text";
-import { getParagraphTextFontStyleProps } from "@/utils/getTextProps";
-import getPaymentIcon from "@/utils/getPaymentIcon";
+import { getParagraphTextFontStyleProps } from "@/utils/emails/getTextProps";
+import getPaymentIcon from "@/utils/emails/getPaymentIcon";
 import { ComponentProps } from "react";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 type DetailTableItem = {
   value: undefined | string | number | null;

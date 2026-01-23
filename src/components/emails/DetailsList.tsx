@@ -5,8 +5,8 @@ import { EmailFonts } from "@/importedUtils";
 import {
   getHeadingTextFontStyleProps,
   getParagraphTextFontStyleProps,
-} from "@/utils/getTextProps";
-import { emailsCn } from "@/utils/cn";
+} from "@/utils/emails/getTextProps";
+import { emailsCn } from "@/utils/emails/cn";
 
 export type DetailsRow = {
   valueTextProps?: ComponentProps<typeof Text>;

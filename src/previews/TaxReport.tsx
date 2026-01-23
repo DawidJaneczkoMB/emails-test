@@ -1,5 +1,5 @@
 import { TaxReport } from "@/templates/TaxReport";
-import { generateAttachmentsData } from "@/utils/mockValues";
+import { generateAttachmentsData } from "@/utils/emails/mockValues";
 import { faker } from "@faker-js/faker";
 
 export function taxReport() {

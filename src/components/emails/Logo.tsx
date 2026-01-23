@@ -1,6 +1,6 @@
 import { Img } from "@react-email/components";
 
-import getImage from "@/utils/getImage";
+import getImage from "@/utils/emails/getImage";
 
 export function Logo() {
   return (

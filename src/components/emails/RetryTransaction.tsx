@@ -1,10 +1,10 @@
-import getImage from "@/utils/getImage";
-import { getHeadingTextFontStyleProps } from "@/utils/getTextProps";
+import getImage from "@/utils/emails/getImage";
+import { getHeadingTextFontStyleProps } from "@/utils/emails/getTextProps";
 import { Button } from "./Button";
 import { Text } from "./Text";
 import { EmailFonts } from "@/importedUtils";
 import { Img, Section } from "@react-email/components";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 export type RetryTransaction = {
   retryLinkDescription?: string;

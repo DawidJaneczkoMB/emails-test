@@ -1,13 +1,13 @@
 import type { VisualCustomizationProps } from "@/types/OrganizationCustomizableEmailProps";
-import type { EmailImages } from "@/utils/getImage";
+import type { EmailImages } from "@/utils/emails/getImage";
 import { Row, Column, Img, Section } from "@react-email/components";
 import type { PropsWithChildren, ReactNode } from "react";
 import { Logo } from "./Logo";
 import { UserLogo } from "./UserLogo";
-import getImage from "@/utils/getImage";
+import getImage from "@/utils/emails/getImage";
 import { Title } from "./Title";
-import { getHeadingTextFontStyleProps } from "@/utils/getTextProps";
-import { emailsCn } from "@/utils/cn";
+import { getHeadingTextFontStyleProps } from "@/utils/emails/getTextProps";
+import { emailsCn } from "@/utils/emails/cn";
 
 type HeroSectionCustomizationProps = Partial<
   Pick<

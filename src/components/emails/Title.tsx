@@ -1,4 +1,4 @@
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 import { Text } from "./Text";
 import type { ComponentProps } from "react";
 

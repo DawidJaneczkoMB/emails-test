@@ -2,7 +2,7 @@ import {
   ResourceReport,
   type ResourceReportProps,
 } from "@/templates/ResourceReport";
-import { generateAttachmentsData } from "@/utils/mockValues";
+import { generateAttachmentsData } from "@/utils/emails/mockValues";
 import { faker } from "@faker-js/faker";
 import dayjs from "dayjs";
 

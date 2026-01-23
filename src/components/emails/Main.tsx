@@ -1,10 +1,10 @@
-import { Theme } from "@/utils/theme";
+import { Theme } from "@/utils/emails/theme";
 import { Html, Section, Tailwind } from "@react-email/components";
 import { PropsWithChildren } from "react";
 import { Head } from "./Head";
 import { Footer } from "./Footer";
 import { TermsAndConditions } from "./TermsAndConditions";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 type MainLayoutProps = {
   withFooter?: boolean;

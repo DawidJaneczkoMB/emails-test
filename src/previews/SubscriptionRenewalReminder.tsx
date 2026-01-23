@@ -1,6 +1,6 @@
 import { SubscriptionRenewalReminder } from "@/templates/SubscriptionRenewalReminder";
 import { faker } from "@faker-js/faker";
-import { generateOrganizationCustomization } from "../utils/mockValues";
+import { generateOrganizationCustomization } from "../utils/emails/mockValues";
 
 export function subscriptionRenewalReminder() {
   return (

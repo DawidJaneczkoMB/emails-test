@@ -1,5 +1,5 @@
+import { checkAPIKey } from "@/utils/checkAPIKey";
 import { createMiddleware } from "@tanstack/react-start";
-import crypto from "crypto";
 
 export const apiMiddleware = createMiddleware().server(
   async ({ request, next }) => {
@@ -12,12 +12,9 @@ export const apiMiddleware = createMiddleware().server(
       );
     }
 
-    const hashedApiKey = crypto
-      .createHash("sha256")
-      .update(apiKey)
-      .digest("hex");
-
-    if (hashedApiKey !== process.env.HASHED_API_KEY) {
+    try {
+      checkAPIKey(apiKey);
+    } catch {
       return Response.json({ error: "invalid api key" }, { status: 401 });
     }
 

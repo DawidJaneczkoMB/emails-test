@@ -1,8 +1,8 @@
 import { EmailFonts } from "@/importedUtils";
 import { Text } from "./Text";
-import { getParagraphTextFontStyleProps } from "@/utils/getTextProps";
+import { getParagraphTextFontStyleProps } from "@/utils/emails/getTextProps";
 import { ComponentProps } from "react";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 export type TableHeaderItem = string | number;
 export type TableItem = (undefined | string | number | null)[];

@@ -1,4 +1,4 @@
-import type { PaymentInstrument } from "../types/PaymentInstrument";
+import type { PaymentInstrument } from "../../types/PaymentInstrument";
 
 export function paymentInstrumentFormatter(
   paymentInstrument: PaymentInstrument

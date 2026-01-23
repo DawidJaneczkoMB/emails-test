@@ -1,8 +1,8 @@
 import { CustomerInvoice } from "@/templates/CustomerInvoice";
 import { faker } from "@faker-js/faker";
-import { generateOrganizationCustomization } from "../utils/mockValues";
+import { generateOrganizationCustomization } from "../utils/emails/mockValues";
 import type { CustomerInvoiceData } from "@/types/CustomerInvoice";
-import { mockInvoiceItems } from "@/utils/mockInvoiceItems";
+import { mockInvoiceItems } from "@/utils/emails/mockInvoiceItems";
 
 function getCustomerInvoiceMockData(): CustomerInvoiceData {
   const date = faker.date.recent();

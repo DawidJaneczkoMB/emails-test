@@ -1,4 +1,4 @@
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 import { Link as RELink } from "@react-email/components";
 import type { ComponentProps } from "react";
 

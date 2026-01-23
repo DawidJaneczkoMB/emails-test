@@ -5,7 +5,7 @@ import { Divider } from "@/components/emails/Divider";
 import { Logo } from "@/components/emails/Logo";
 import DetailsList, { type DetailsRow } from "@/components/emails/DetailsList";
 import { Section, Row, Column, Img } from "@react-email/components";
-import getImage from "@/utils/getImage";
+import getImage from "@/utils/emails/getImage";
 import { AnyQuestionsCopy } from "@/components/emails/AnyQuestionsCopy";
 import { AutomatedMessageCopy } from "@/components/emails/AutomatedMessageCopy";
 

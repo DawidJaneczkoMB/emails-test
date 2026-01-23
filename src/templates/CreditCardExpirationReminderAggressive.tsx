@@ -4,15 +4,15 @@ import { RoundedSection } from "@/components/emails/RoundedSection";
 import { Text } from "@/components/emails/Text";
 import { Divider } from "@/components/emails/Divider";
 import { Img } from "@react-email/components";
-import getImage from "@/utils/getImage";
+import getImage from "@/utils/emails/getImage";
 import type OrganizationCustomizableEmailProps from "@/types/OrganizationCustomizableEmailProps";
 import {
   getHeadingTextFontStyleProps,
   getParagraphTextFontStyleProps,
-} from "@/utils/getTextProps";
+} from "@/utils/emails/getTextProps";
 import { AnyQuestionsCopy } from "@/components/emails/AnyQuestionsCopy";
 import { AutomatedMessageCopy } from "@/components/emails/AutomatedMessageCopy";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 type CreditCardExpirationReminderAggressiveProps = {
   name: string;

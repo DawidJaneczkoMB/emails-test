@@ -2,7 +2,7 @@ import AttachmentsData from "@/types/AttachmentsData";
 import { Text } from "./Text";
 import { Divider } from "./Divider";
 import { Column, Row } from "@react-email/components";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 import { Link } from "./Link";
 
 type AttachmentsSectionProps = AttachmentsData & {

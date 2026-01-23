@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 import {
   generateOrganizationCustomization,
   generateSubscriptionData,
-} from "../utils/mockValues";
+} from "../utils/emails/mockValues";
 
 export function defaultEmail() {
   return (

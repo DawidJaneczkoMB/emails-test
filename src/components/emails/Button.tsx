@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 import { Button as REButton, Section } from "@react-email/components";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 type ButtonProps = ComponentProps<typeof REButton> & {
   sectionClassName?: string;

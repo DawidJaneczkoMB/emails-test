@@ -7,7 +7,7 @@ import { Divider } from "@/components/emails/Divider";
 import DetailsList, { type DetailsRow } from "@/components/emails/DetailsList";
 import { Section } from "@react-email/components";
 import type { GatewayLoggingEventType } from "@/types/GatewayLoggingEvent";
-import { generateLabelFromGatewayUpdateEvent } from "@/utils/generateLabelFromGatewayUpdateEvent";
+import { generateLabelFromGatewayUpdateEvent } from "@/utils/emails/generateLabelFromGatewayUpdateEvent";
 
 type GatewayImportantUpdateProps = {
   actionType: GatewayLoggingEventType;

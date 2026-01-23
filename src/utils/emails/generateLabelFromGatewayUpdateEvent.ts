@@ -1,4 +1,4 @@
-import type { GatewayLoggingEventType } from "../types/GatewayLoggingEvent";
+import type { GatewayLoggingEventType } from "../../types/GatewayLoggingEvent";
 import * as R from "remeda";
 
 const preserveUppercaseWords = ["3d", "nmi", "id"];

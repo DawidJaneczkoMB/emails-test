@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { Text } from "./Text";
 import { Column, Row } from "@react-email/components";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 export type AutomatedMessageCopyProps = ComponentProps<typeof Text>;
 

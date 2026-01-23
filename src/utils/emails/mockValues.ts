@@ -1,10 +1,10 @@
 import { faker } from "@faker-js/faker";
 import dayjs from "dayjs";
 
-import type OrganizationCustomizableEmailProps from "../types/OrganizationCustomizableEmailProps";
-import type { VisualCustomizationProps } from "../types/OrganizationCustomizableEmailProps";
-import type SubscriptionData from "../types/SubscriptionData";
-import type TransactionData from "../types/TransactionData";
+import type OrganizationCustomizableEmailProps from "../../types/OrganizationCustomizableEmailProps";
+import type { VisualCustomizationProps } from "../../types/OrganizationCustomizableEmailProps";
+import type SubscriptionData from "../../types/SubscriptionData";
+import type TransactionData from "../../types/TransactionData";
 
 const testUserLogo =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlEr48k0OMIo3PcMNvwya5MdGvNyZCBqkX4ILxK2WTwUWJlrphxBYiHwH8LJ4O1DjMMoY&usqp=CAU";

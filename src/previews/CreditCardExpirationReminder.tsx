@@ -1,6 +1,6 @@
 import { CreditCardExpirationReminder } from "@/templates/CreditCardExpirationReminder";
 import { faker } from "@faker-js/faker";
-import { generateOrganizationCustomization } from "../utils/mockValues";
+import { generateOrganizationCustomization } from "../utils/emails/mockValues";
 
 export function defaultEmail() {
   return (

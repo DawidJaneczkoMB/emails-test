@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-import type { InvoiceItem } from "../types/InvoiceItem";
+import type { InvoiceItem } from "../../types/InvoiceItem";
 
 export function mockInvoiceItems() {
   return Array.from({

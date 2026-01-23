@@ -1,4 +1,4 @@
-import getImage from "@/utils/getImage";
+import getImage from "@/utils/emails/getImage";
 import { Column, Img, Row, Section } from "@react-email/components";
 import { Text } from "./Text";
 import { Divider } from "./Divider";

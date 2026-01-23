@@ -1,8 +1,8 @@
 import { Img } from "@react-email/components";
 import { Text } from "./Text";
-import { getHeadingTextFontStyleProps } from "@/utils/getTextProps";
+import { getHeadingTextFontStyleProps } from "@/utils/emails/getTextProps";
 import { EmailFonts } from "@/importedUtils";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 export type UserLogoProps = {
   organizationNameColor?: string;

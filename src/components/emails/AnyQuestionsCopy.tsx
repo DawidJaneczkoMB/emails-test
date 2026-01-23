@@ -4,7 +4,7 @@ import { Link } from "./Link";
 import type OrganizationCustomizableEmailProps from "../../types/OrganizationCustomizableEmailProps";
 import type { VisualCustomizationProps } from "../../types/OrganizationCustomizableEmailProps";
 import { Column, Row } from "@react-email/components";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 export type AnyQuestionsCopyProps = ComponentProps<typeof Text> &
   Partial<Pick<OrganizationCustomizableEmailProps, "customerServiceMail">> &

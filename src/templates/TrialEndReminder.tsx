@@ -10,10 +10,10 @@ import type SubscriptionData from "@/types/SubscriptionData";
 import {
   getHeadingTextFontStyleProps,
   getParagraphTextFontStyleProps,
-} from "@/utils/getTextProps";
+} from "@/utils/emails/getTextProps";
 import { AnyQuestionsCopy } from "@/components/emails/AnyQuestionsCopy";
 import { AutomatedMessageCopy } from "@/components/emails/AutomatedMessageCopy";
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 
 type TrialEndReminderProps = {
   nextCharge: string;

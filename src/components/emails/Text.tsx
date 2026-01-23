@@ -1,4 +1,4 @@
-import { emailsCn } from "@/utils/cn";
+import { emailsCn } from "@/utils/emails/cn";
 import { Text as REText } from "@react-email/components";
 import type { ComponentProps } from "react";
 
