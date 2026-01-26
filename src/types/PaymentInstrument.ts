@@ -1,5 +1,5 @@
 import { CreditCardBrand } from "@/importedApi";
-import { z } from "zod";
+import * as z from "zod";
 
 export const paymentInstrument = z.object({
   creditCard: z

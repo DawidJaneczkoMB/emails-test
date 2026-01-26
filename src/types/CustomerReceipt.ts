@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "zod";
 
 import { documentPartySchema } from "./DocumentParty";
 import { invoiceItemSchema } from "./InvoiceItem";

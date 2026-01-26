@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "zod";
 
 // Environment variables schema
 const envSchema = z.object({

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import * as z from "zod";
 
 export const documentPartySchema = z.object({
   phone: z

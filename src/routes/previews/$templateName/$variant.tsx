@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { VariantLayout } from "@/components/app/VariantLayout";
 import { Preview } from "@/components/app/Preview";
 import { CodePreview } from "@/components/app/CodePreview";
-import { z } from "zod";
+import * as z from "zod";
 
 const previewSearchSchema = z.object({
   view: z.enum(["preview", "code"]).optional().default("preview"),
